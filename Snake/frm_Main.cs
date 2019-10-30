@@ -17,6 +17,7 @@ namespace Snake
             new Frm_Login().ShowDialog();
 
             InitializeComponent();
+            PanelEnd.Dock = DockStyle.Fill;
         }
     }
 }

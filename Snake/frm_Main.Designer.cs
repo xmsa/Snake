@@ -1,6 +1,6 @@
 ﻿namespace Snake
 {
-    partial class Form1
+    partial class Frm_Main
     {
         /// <summary>
         /// Required designer variable.

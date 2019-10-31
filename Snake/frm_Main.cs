@@ -12,12 +12,15 @@ namespace Snake
 {
     public partial class Frm_Main : Form
     {
+        Frm_Main _Frm_Main;
         public Frm_Main()
         {
-            new Frm_Login().ShowDialog();
-
+           // new Frm_Login().ShowDialog();
+            _Frm_Main = this;
             InitializeComponent();
             PanelEnd.Dock = DockStyle.Fill;
+            PanelEnd.Visible = false;
+
         }
     }
 }

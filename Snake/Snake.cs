@@ -13,7 +13,7 @@ namespace Snake
     {
         Frm_Main frm;
         List<PictureBox> _body;
-        Point Head;
+        public Point Head;
         public char Direction;
         public snake(ref Frm_Main _frm, char _Direction)
         {

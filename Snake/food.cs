@@ -12,17 +12,18 @@ namespace Snake
     {
         int Height;
         int Width;
-
+        PictureBox Food;
         public food(ref Frm_Main main)
         {
-            PictureBox Food = new PictureBox();
+            Food = new PictureBox();
             Food.Size = new System.Drawing.Size(20, 20);
             Food.BackColor = System.Drawing.Color.Red;
-            Height = main.Size.Height;
-            Width = main.Size.Width;
+            Height = main.Size.Height - 60;
+            Width = main.Size.Width-60;
 
             Location=Point.Empty;
-            Food.Location = Location;
+            Food.Location = ranlocation();
+            Location=Food.Location;
             Food.Name = "food";
             main.Controls.Add(Food);
         }
@@ -36,7 +37,7 @@ namespace Snake
             }
             set
             {
-                _location = ranlocation();
+                _location = value;
             }
         }
         private Point ranlocation()
@@ -48,6 +49,8 @@ namespace Snake
         public void shift()
         {
             Location =ranlocation();
+            Food.Location = Location;
+
         }
 
     }

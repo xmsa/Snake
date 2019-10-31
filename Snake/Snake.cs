@@ -51,22 +51,22 @@ namespace Snake
                     Head.X += 20;
                     break;
             }
-            if (Head.Y > 100)
+            if (Head.Y > frm.Height-60)
             {
-                Head.Y -= 100;
+                Head.Y = 0;
             }
             else if (Head.Y < 0)
             {
-                Head.Y += 100;
+                Head.Y = frm.Height - 60;
 
             }
-            if (Head.X > 100)
+            if (Head.X > frm.Width-60)
             {
-                Head.X -= 100;
+                Head.X =0;
             }
             else if (Head.X < 0)
             {
-                Head.X += 100;
+                Head.X = frm.Width - 60;
             }
 
             PictureBox part = new PictureBox();

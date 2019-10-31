@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PanelEnd = new System.Windows.Forms.Panel();
             this.PicPlayAgain = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PanelEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +56,10 @@
             this.PicPlayAgain.TabIndex = 0;
             this.PicPlayAgain.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -68,6 +74,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Main_KeyDown);
             this.PanelEnd.ResumeLayout(false);
             this.PanelEnd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).EndInit();
@@ -79,6 +86,7 @@
 
         private System.Windows.Forms.Panel PanelEnd;
         private System.Windows.Forms.PictureBox PicPlayAgain;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

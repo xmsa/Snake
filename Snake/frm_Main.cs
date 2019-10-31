@@ -13,6 +13,8 @@ namespace Snake
     public partial class Frm_Main : Form
     {
         Frm_Main _Frm_Main;
+        food _food;
+        snake _snake;
         public Frm_Main()
         {
            // new Frm_Login().ShowDialog();

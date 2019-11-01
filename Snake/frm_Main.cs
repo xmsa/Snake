@@ -19,7 +19,7 @@ namespace Snake
         int _fLy;
         public Frm_Main()
         {
-           // new Frm_Login().ShowDialog();
+            new Frm_Login().ShowDialog();
             _Frm_Main = this;
             InitializeComponent();
             PanelEnd.Dock = DockStyle.Fill;

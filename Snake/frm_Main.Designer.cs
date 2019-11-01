@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.PanelEnd = new System.Windows.Forms.Panel();
             this.PicPlayAgain = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TimerSpeed = new System.Windows.Forms.Timer(this.components);
+            this.TimerShiftFood = new System.Windows.Forms.Timer(this.components);
+            this.LblLevel = new System.Windows.Forms.Label();
             this.PanelEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).BeginInit();
             this.SuspendLayout();
@@ -56,9 +58,26 @@
             this.PicPlayAgain.TabIndex = 0;
             this.PicPlayAgain.TabStop = false;
             // 
-            // timer1
+            // TimerSpeed
             // 
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.TimerSpeed.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // TimerShiftFood
+            // 
+            this.TimerShiftFood.Interval = 2000;
+            this.TimerShiftFood.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
+            // LblLevel
+            // 
+            this.LblLevel.AutoSize = true;
+            this.LblLevel.BackColor = System.Drawing.Color.Transparent;
+            this.LblLevel.Font = new System.Drawing.Font("Microsoft Uighur", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLevel.ForeColor = System.Drawing.Color.Black;
+            this.LblLevel.Location = new System.Drawing.Point(663, 417);
+            this.LblLevel.Name = "LblLevel";
+            this.LblLevel.Size = new System.Drawing.Size(19, 26);
+            this.LblLevel.TabIndex = 1;
+            this.LblLevel.Text = "0";
             // 
             // Frm_Main
             // 
@@ -67,6 +86,7 @@
             this.BackgroundImage = global::Snake.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(704, 441);
             this.Controls.Add(this.PanelEnd);
+            this.Controls.Add(this.LblLevel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -79,6 +99,7 @@
             this.PanelEnd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -86,7 +107,9 @@
 
         private System.Windows.Forms.Panel PanelEnd;
         private System.Windows.Forms.PictureBox PicPlayAgain;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer TimerSpeed;
+        private System.Windows.Forms.Timer TimerShiftFood;
+        private System.Windows.Forms.Label LblLevel;
     }
 }
 

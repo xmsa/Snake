@@ -17,18 +17,24 @@ namespace Snake
         snake _snake;
         int _fLx;
         int _fLy;
+        public int _Speed;
+        public int _ShiftFood;
+        int level;
         public Frm_Main()
         {
-            new Frm_Login().ShowDialog();
+            //new Frm_Login().ShowDialog();
             _Frm_Main = this;
             InitializeComponent();
             PanelEnd.Dock = DockStyle.Fill;
             PanelEnd.Visible = false;
             _food = new food(ref _Frm_Main);
+            level = 0;
              _snake=new snake (ref _Frm_Main,'d');
             _fLx=_food.Location.X;
             _fLy = _food.Location.Y;
-
+            new Frm_Setting(ref _Frm_Main ).ShowDialog();
+            TimerSpeed.Interval = 200 - ( _Speed * 10);
+            TimerShiftFood.Interval = _ShiftFood * 500;
         }
 
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
@@ -43,8 +49,8 @@ namespace Snake
             {
                 return;
             }
-            timer1.Enabled = true;
-
+            TimerSpeed.Enabled = true;
+            TimerShiftFood.Enabled = true;
             switch (key)
             {
                 case 'A':
@@ -95,8 +101,23 @@ namespace Snake
         {
             _snake.add();
             _food.shift();
+            TimerShiftFood.Stop();
+            TimerShiftFood.Start();
+            _fLx = _food.Location.X;
+            _fLy = _food.Location.Y;
+            level++;
+            LblLevel.Text =  level.ToString();
+            
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            _food.shift();
+            
             _fLx = _food.Location.X;
             _fLy = _food.Location.Y;
         }
+
+       
     }
 }

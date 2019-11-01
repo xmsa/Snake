@@ -110,6 +110,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "Frm_Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Login";
             ((System.ComponentModel.ISupportInitialize)(this.PicSnake2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSnake1)).EndInit();

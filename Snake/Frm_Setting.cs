@@ -15,7 +15,7 @@ namespace Snake
         Frm_Main frm;
         List<PictureBox> _body;
         Point Head;
-        public Frm_Setting(ref Frm_Main _frm )
+        public Frm_Setting(ref Frm_Main _frm)
         {
             InitializeComponent();
             frm = _frm;
@@ -28,7 +28,7 @@ namespace Snake
             frm._ShiftFood = TrBarShiftFood.Value;
             frm._Speed = TrBarSpeed.Value;
             Speed.Enabled = true;
-            
+
 
         }
 
@@ -40,7 +40,7 @@ namespace Snake
 
         private void TrBarSpeed_ValueChanged(object sender, EventArgs e)
         {
-            label1.Text = "Speed: "+TrBarSpeed.Value.ToString();
+            label1.Text = "Speed: " + TrBarSpeed.Value.ToString();
             frm._Speed = TrBarSpeed.Value;
             Speed.Interval = 200 - (TrBarSpeed.Value * 10);
 
@@ -98,10 +98,13 @@ namespace Snake
             {
                 frm.Law = 0;
             }
+
+            frm.Wall = chWall.Checked;
+
             this.Close();
 
         }
 
-        
+
     }
 }

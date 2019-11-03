@@ -36,9 +36,10 @@
             this.Speed = new System.Windows.Forms.Timer(this.components);
             this.BtnStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbNoLaw = new System.Windows.Forms.RadioButton();
-            this.rbCTS = new System.Windows.Forms.RadioButton();
+            this.chWall = new System.Windows.Forms.CheckBox();
             this.rbNCTS = new System.Windows.Forms.RadioButton();
+            this.rbCTS = new System.Windows.Forms.RadioButton();
+            this.rbNoLaw = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarShiftFood)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,7 +94,7 @@
             // BtnStart
             // 
             this.BtnStart.Font = new System.Drawing.Font("Microsoft Uighur", 24F);
-            this.BtnStart.Location = new System.Drawing.Point(39, 389);
+            this.BtnStart.Location = new System.Drawing.Point(39, 431);
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(266, 37);
             this.BtnStart.TabIndex = 3;
@@ -103,16 +104,48 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chWall);
             this.groupBox1.Controls.Add(this.rbNCTS);
             this.groupBox1.Controls.Add(this.rbCTS);
             this.groupBox1.Controls.Add(this.rbNoLaw);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Uighur", 24F);
             this.groupBox1.Location = new System.Drawing.Point(20, 253);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 130);
+            this.groupBox1.Size = new System.Drawing.Size(316, 169);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Law";
+            // 
+            // chWall
+            // 
+            this.chWall.AutoSize = true;
+            this.chWall.Location = new System.Drawing.Point(4, 124);
+            this.chWall.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.chWall.Name = "chWall";
+            this.chWall.Size = new System.Drawing.Size(80, 46);
+            this.chWall.TabIndex = 1;
+            this.chWall.Text = "Wall";
+            this.chWall.UseVisualStyleBackColor = true;
+            // 
+            // rbNCTS
+            // 
+            this.rbNCTS.AutoSize = true;
+            this.rbNCTS.Location = new System.Drawing.Point(0, 78);
+            this.rbNCTS.Name = "rbNCTS";
+            this.rbNCTS.Size = new System.Drawing.Size(238, 46);
+            this.rbNCTS.TabIndex = 0;
+            this.rbNCTS.Text = "No Cutting The Snake";
+            this.rbNCTS.UseVisualStyleBackColor = true;
+            // 
+            // rbCTS
+            // 
+            this.rbCTS.AutoSize = true;
+            this.rbCTS.Location = new System.Drawing.Point(0, 38);
+            this.rbCTS.Name = "rbCTS";
+            this.rbCTS.Size = new System.Drawing.Size(205, 46);
+            this.rbCTS.TabIndex = 0;
+            this.rbCTS.Text = "Cutting The Snake";
+            this.rbCTS.UseVisualStyleBackColor = true;
             // 
             // rbNoLaw
             // 
@@ -126,31 +159,11 @@
             this.rbNoLaw.Text = "No Law";
             this.rbNoLaw.UseVisualStyleBackColor = true;
             // 
-            // rbCTS
-            // 
-            this.rbCTS.AutoSize = true;
-            this.rbCTS.Location = new System.Drawing.Point(0, 38);
-            this.rbCTS.Name = "rbCTS";
-            this.rbCTS.Size = new System.Drawing.Size(205, 46);
-            this.rbCTS.TabIndex = 0;
-            this.rbCTS.Text = "Cutting The Snake";
-            this.rbCTS.UseVisualStyleBackColor = true;
-            // 
-            // rbNCTS
-            // 
-            this.rbNCTS.AutoSize = true;
-            this.rbNCTS.Location = new System.Drawing.Point(0, 78);
-            this.rbNCTS.Name = "rbNCTS";
-            this.rbNCTS.Size = new System.Drawing.Size(238, 46);
-            this.rbNCTS.TabIndex = 0;
-            this.rbNCTS.Text = "No Cutting The Snake";
-            this.rbNCTS.UseVisualStyleBackColor = true;
-            // 
             // Frm_Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 438);
+            this.ClientSize = new System.Drawing.Size(348, 477);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnStart);
             this.Controls.Add(this.label2);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.RadioButton rbNoLaw;
         private System.Windows.Forms.RadioButton rbNCTS;
         private System.Windows.Forms.RadioButton rbCTS;
+        private System.Windows.Forms.CheckBox chWall;
     }
 }

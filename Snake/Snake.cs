@@ -28,7 +28,7 @@ namespace Snake
 
 
         }
-        public void move(int _law)
+        public void move(int _law )
         {
             add();
             
@@ -101,6 +101,7 @@ namespace Snake
 
         public void add()
         {
+            
             switch (Direction)
             {
                 case 'w':
@@ -116,23 +117,39 @@ namespace Snake
                     Head.X += 20;
                     break;
             }
-            if (Head.Y > frm.Height-60)
+            if (frm.Wall)
             {
-                Head.Y = 0;
-            }
-            else if (Head.Y < 0)
-            {
-                Head.Y = frm.Height - 60;
+                if (0> Head.Y || Head.Y > frm.Height || 0> Head.X || Head.X > frm.Width)
+                {
+                    frm.TimerShiftFood.Enabled = false;
+                    frm.TimerSpeed.Enabled = false;
 
+                    frm.PanelEnd.Visible = true;
+                    frm.Lbl_star.Text = frm.level.ToString();
+                    return;
+                }  
             }
-            if (Head.X > frm.Width-60)
+            else
             {
-                Head.X =0;
+                if (Head.Y > frm.Height - 60)
+                {
+                    Head.Y = 0;
+                }
+                else if (Head.Y < 0)
+                {
+                    Head.Y = frm.Height - 60;
+
+                }
+                if (Head.X > frm.Width - 60)
+                {
+                    Head.X = 0;
+                }
+                else if (Head.X < 0)
+                {
+                    Head.X = frm.Width - 60;
+                }
             }
-            else if (Head.X < 0)
-            {
-                Head.X = frm.Width - 60;
-            }
+            
 
             PictureBox part = new PictureBox();
             part.Height = 10;

@@ -13,6 +13,7 @@ namespace Snake
     public partial class Frm_Main : Form
     {
         Frm_Main _Frm_Main;
+        public bool Wall { get; set; }
         food _food;
         snake _snake;
         int _fLx;

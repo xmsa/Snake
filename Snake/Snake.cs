@@ -26,14 +26,79 @@ namespace Snake
             add();
             add();
 
+
         }
-        public void move()
+        public void move(int _law)
         {
             add();
+            
             frm.Controls.Remove(_body[0]);
             _body.RemoveAt(0);
             _body[_body.Count - 1].BackColor = Color.Red;
+
+            if (_law == 1)
+            {
+                law1();
+            }
+            else if (_law == 2)
+            {
+                law2();
+            }
         }
+        //Cutting The Snake
+        private void law2()
+        {
+            int HeadX0 = Head.X;
+            int HeadX1 = Head.X + 20;
+            int HeadY0 = Head.Y;
+            int HeadY1 = Head.Y + 20;
+            for (int i = _body.Count -4; i >= 0 ; i--)
+            {
+                PictureBox val = _body[i];
+            
+                if (HeadX0 <= val.Location.X && val.Location.X <= HeadX1 && HeadY0 <= val.Location.Y && val.Location.Y <= HeadY1)
+                {
+                    for (int j = 0; j <= i; j++)
+                    {
+                        try
+                        {
+                            frm.Controls.Remove(_body[j]);
+                            _body.RemoveAt(j);
+                        }
+                        catch (Exception)
+                        {
+                            return;
+                        }
+                    }
+                    return;
+                }
+            }
+
+        }
+
+        //No Cutting The Snake
+
+        private void law1()
+        {
+            int HeadX0 = Head.X;
+            int HeadX1 = Head.X + 20;
+            int HeadY0 = Head.Y;
+            int HeadY1 = Head.Y + 20;
+            for (int i = _body.Count - 4; i >= 0; i--)
+            {
+                PictureBox val = _body[i];
+
+                if (HeadX0 <= val.Location.X && val.Location.X <= HeadX1 && HeadY0 <= val.Location.Y && val.Location.Y <= HeadY1)
+                {
+                    frm.TimerShiftFood.Enabled = false;
+                    frm.TimerSpeed.Enabled = false;
+                    frm.PanelEnd.Visible = true;
+                    frm.Lbl_star.Text = frm.level.ToString();
+
+                }
+            }
+        }
+
         public void add()
         {
             switch (Direction)

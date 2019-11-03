@@ -34,6 +34,7 @@
             this.TimerSpeed = new System.Windows.Forms.Timer(this.components);
             this.TimerShiftFood = new System.Windows.Forms.Timer(this.components);
             this.LblLevel = new System.Windows.Forms.Label();
+            this.Lbl_star = new System.Windows.Forms.Label();
             this.PanelEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).BeginInit();
             this.SuspendLayout();
@@ -41,17 +42,19 @@
             // PanelEnd
             // 
             this.PanelEnd.BackColor = System.Drawing.Color.Transparent;
+            this.PanelEnd.Controls.Add(this.Lbl_star);
             this.PanelEnd.Controls.Add(this.PicPlayAgain);
-            this.PanelEnd.Location = new System.Drawing.Point(11, 12);
+            this.PanelEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelEnd.Location = new System.Drawing.Point(0, 0);
             this.PanelEnd.Name = "PanelEnd";
-            this.PanelEnd.Size = new System.Drawing.Size(85, 56);
+            this.PanelEnd.Size = new System.Drawing.Size(704, 441);
             this.PanelEnd.TabIndex = 0;
             // 
             // PicPlayAgain
             // 
             this.PicPlayAgain.BackColor = System.Drawing.Color.Transparent;
             this.PicPlayAgain.Image = global::Snake.Properties.Resources.game_over;
-            this.PicPlayAgain.Location = new System.Drawing.Point(246, 93);
+            this.PicPlayAgain.Location = new System.Drawing.Point(244, 12);
             this.PicPlayAgain.Name = "PicPlayAgain";
             this.PicPlayAgain.Size = new System.Drawing.Size(225, 225);
             this.PicPlayAgain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -79,6 +82,16 @@
             this.LblLevel.TabIndex = 1;
             this.LblLevel.Text = "0";
             // 
+            // Lbl_star
+            // 
+            this.Lbl_star.AutoSize = true;
+            this.Lbl_star.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_star.Location = new System.Drawing.Point(323, 240);
+            this.Lbl_star.Name = "Lbl_star";
+            this.Lbl_star.Size = new System.Drawing.Size(63, 38);
+            this.Lbl_star.TabIndex = 1;
+            this.Lbl_star.Text = "label1";
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,12 +117,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel PanelEnd;
         private System.Windows.Forms.PictureBox PicPlayAgain;
-        private System.Windows.Forms.Timer TimerSpeed;
-        private System.Windows.Forms.Timer TimerShiftFood;
         private System.Windows.Forms.Label LblLevel;
+        public System.Windows.Forms.Panel PanelEnd;
+        public System.Windows.Forms.Timer TimerSpeed;
+        public System.Windows.Forms.Timer TimerShiftFood;
+        public System.Windows.Forms.Label Lbl_star;
     }
 }
 

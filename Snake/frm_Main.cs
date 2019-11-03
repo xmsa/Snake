@@ -19,10 +19,11 @@ namespace Snake
         int _fLy;
         public int _Speed;
         public int _ShiftFood;
-        int level;
+        public int level;
+        public int Law;
         public Frm_Main()
         {
-            //new Frm_Login().ShowDialog();
+            new Frm_Login().ShowDialog();
             _Frm_Main = this;
             InitializeComponent();
             PanelEnd.Dock = DockStyle.Fill;
@@ -70,7 +71,7 @@ namespace Snake
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            _snake.move();
+            _snake.move(Law);
             eatfoot();
         }
 

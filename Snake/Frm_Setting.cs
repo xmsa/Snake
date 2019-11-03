@@ -84,11 +84,12 @@ namespace Snake
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-
+            //No Cutting The Snake
             if (rbNCTS.Checked)
             {
                 frm.Law = 1;
             }
+            //Cutting The Snake
             else if (rbCTS.Checked)
             {
                 frm.Law = 2;

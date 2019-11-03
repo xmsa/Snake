@@ -224,7 +224,7 @@ namespace Snake
             _frm._fLx = _food._location.X;
             _frm._fLy = _food._location.Y;
             _frm._score++;
-            _frm.LblLevel.Text = _frm._score.ToString();
+            _frm.Lblscore.Text = _frm._score.ToString();
         }
     }
 }

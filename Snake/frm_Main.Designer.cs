@@ -34,7 +34,7 @@
             this.PicPlayAgain = new System.Windows.Forms.PictureBox();
             this.TimerSpeed = new System.Windows.Forms.Timer(this.components);
             this.TimerShiftFood = new System.Windows.Forms.Timer(this.components);
-            this.LblLevel = new System.Windows.Forms.Label();
+            this.Lblscore = new System.Windows.Forms.Label();
             this.PanelEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).BeginInit();
             this.SuspendLayout();
@@ -83,15 +83,15 @@
             // 
             // LblLevel
             // 
-            this.LblLevel.AutoSize = true;
-            this.LblLevel.BackColor = System.Drawing.Color.Transparent;
-            this.LblLevel.Font = new System.Drawing.Font("Microsoft Uighur", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLevel.ForeColor = System.Drawing.Color.Black;
-            this.LblLevel.Location = new System.Drawing.Point(663, 417);
-            this.LblLevel.Name = "LblLevel";
-            this.LblLevel.Size = new System.Drawing.Size(19, 26);
-            this.LblLevel.TabIndex = 1;
-            this.LblLevel.Text = "0";
+            this.Lblscore.AutoSize = true;
+            this.Lblscore.BackColor = System.Drawing.Color.Transparent;
+            this.Lblscore.Font = new System.Drawing.Font("Microsoft Uighur", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblscore.ForeColor = System.Drawing.Color.Black;
+            this.Lblscore.Location = new System.Drawing.Point(663, 417);
+            this.Lblscore.Name = "LblLevel";
+            this.Lblscore.Size = new System.Drawing.Size(19, 26);
+            this.Lblscore.TabIndex = 1;
+            this.Lblscore.Text = "0";
             // 
             // Frm_Main
             // 
@@ -100,7 +100,7 @@
             this.BackgroundImage = global::Snake.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(704, 441);
             this.Controls.Add(this.PanelEnd);
-            this.Controls.Add(this.LblLevel);
+            this.Controls.Add(this.Lblscore);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -123,7 +123,7 @@
         public System.Windows.Forms.Timer TimerSpeed;
         public System.Windows.Forms.Timer TimerShiftFood;
         public System.Windows.Forms.Label Lbl_star;
-        public System.Windows.Forms.Label LblLevel;
+        public System.Windows.Forms.Label Lblscore;
     }
 }
 

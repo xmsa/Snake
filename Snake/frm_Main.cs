@@ -114,7 +114,7 @@ namespace Snake
             PanelEnd.Visible = false;
             _score = 0;
 
-            LblLevel.Text = string.Empty;
+            Lblscore.Text = string.Empty;
             TimerShiftFood.Stop();
             TimerSpeed.Stop();
 

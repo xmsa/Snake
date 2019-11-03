@@ -84,7 +84,23 @@ namespace Snake
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
+
+            if (rbNCTS.Checked)
+            {
+                frm.Law = 1;
+            }
+            else if (rbCTS.Checked)
+            {
+                frm.Law = 2;
+            }
+            else if (rbNoLaw.Checked)
+            {
+                frm.Law = 0;
+            }
             this.Close();
+
         }
+
+        
     }
 }

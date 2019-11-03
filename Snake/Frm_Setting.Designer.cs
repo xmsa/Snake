@@ -35,8 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Speed = new System.Windows.Forms.Timer(this.components);
             this.BtnStart = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNoLaw = new System.Windows.Forms.RadioButton();
+            this.rbCTS = new System.Windows.Forms.RadioButton();
+            this.rbNCTS = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarShiftFood)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TrBarSpeed
@@ -88,7 +93,7 @@
             // BtnStart
             // 
             this.BtnStart.Font = new System.Drawing.Font("Microsoft Uighur", 24F);
-            this.BtnStart.Location = new System.Drawing.Point(41, 275);
+            this.BtnStart.Location = new System.Drawing.Point(39, 389);
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(266, 37);
             this.BtnStart.TabIndex = 3;
@@ -96,11 +101,57 @@
             this.BtnStart.UseVisualStyleBackColor = true;
             this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbNCTS);
+            this.groupBox1.Controls.Add(this.rbCTS);
+            this.groupBox1.Controls.Add(this.rbNoLaw);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Uighur", 24F);
+            this.groupBox1.Location = new System.Drawing.Point(20, 253);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(316, 130);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Law";
+            // 
+            // rbNoLaw
+            // 
+            this.rbNoLaw.AutoSize = true;
+            this.rbNoLaw.Checked = true;
+            this.rbNoLaw.Location = new System.Drawing.Point(207, 38);
+            this.rbNoLaw.Name = "rbNoLaw";
+            this.rbNoLaw.Size = new System.Drawing.Size(106, 46);
+            this.rbNoLaw.TabIndex = 0;
+            this.rbNoLaw.TabStop = true;
+            this.rbNoLaw.Text = "No Law";
+            this.rbNoLaw.UseVisualStyleBackColor = true;
+            // 
+            // rbCTS
+            // 
+            this.rbCTS.AutoSize = true;
+            this.rbCTS.Location = new System.Drawing.Point(0, 38);
+            this.rbCTS.Name = "rbCTS";
+            this.rbCTS.Size = new System.Drawing.Size(205, 46);
+            this.rbCTS.TabIndex = 0;
+            this.rbCTS.Text = "Cutting The Snake";
+            this.rbCTS.UseVisualStyleBackColor = true;
+            // 
+            // rbNCTS
+            // 
+            this.rbNCTS.AutoSize = true;
+            this.rbNCTS.Location = new System.Drawing.Point(0, 78);
+            this.rbNCTS.Name = "rbNCTS";
+            this.rbNCTS.Size = new System.Drawing.Size(238, 46);
+            this.rbNCTS.TabIndex = 0;
+            this.rbNCTS.Text = "No Cutting The Snake";
+            this.rbNCTS.UseVisualStyleBackColor = true;
+            // 
             // Frm_Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 324);
+            this.ClientSize = new System.Drawing.Size(348, 438);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -108,9 +159,12 @@
             this.Controls.Add(this.TrBarSpeed);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Setting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setting";
             ((System.ComponentModel.ISupportInitialize)(this.TrBarSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarShiftFood)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +178,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer Speed;
         private System.Windows.Forms.Button BtnStart;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbNoLaw;
+        private System.Windows.Forms.RadioButton rbNCTS;
+        private System.Windows.Forms.RadioButton rbCTS;
     }
 }

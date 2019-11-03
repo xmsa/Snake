@@ -12,17 +12,37 @@ namespace Snake
 {
     public partial class Frm_Main : Form
     {
+        //Object Form Main
         Frm_Main _Frm_Main;
+
+        //Object Food
         CFood _food;
+
+        //Object Snake
         CSnake _snake;
+
+        //Location X Food 
         public int _fLx { get; set; }
+
+        //Location X Food 
         public int _fLy { get; set; }
+
+        //Flag Enabled Wall
         public bool _wall { get; set; }
+
+        //Speed Move Snake
         public int _Speed { get; set; }
+
+        //Speed Shift Food
         public int _ShiftFood { get; set; }
-        public int _level { get; set; }
+
+        //Game Score
+        public int _score { get; set; }
+
+        //Speed Move Snake
         public int _law { get; set; }
 
+        //Constructor
         public Frm_Main()
         {
             new Frm_Login().ShowDialog();
@@ -31,7 +51,7 @@ namespace Snake
             PanelEnd.Dock = DockStyle.Fill;
             PanelEnd.Visible = false;
             _food = new CFood(ref _Frm_Main);
-            _level = 0;
+            _score = 0;
              _snake=new CSnake (ref _Frm_Main,'d');
             _fLx=_food._location.X;
             _fLy = _food._location.Y;
@@ -40,6 +60,7 @@ namespace Snake
             TimerShiftFood.Interval = _ShiftFood * 500;
         }
 
+        //Directional Key Detection
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
         {
             char key='d';
@@ -70,12 +91,14 @@ namespace Snake
             }
         }
 
+        //Timer Move Snake
         private void Timer1_Tick(object sender, EventArgs e)
         {
             _snake._Move(_law);
             _snake.eatfood(ref _food);
         }
 
+        //Timer Shift food
         private void Timer2_Tick(object sender, EventArgs e)
         {
             _food.shift();
@@ -84,11 +107,12 @@ namespace Snake
             _fLy = _food._location.Y;
         }
 
+        //click Play Again
         private void PicPlayAgain_Click(object sender, EventArgs e)
         {
             _snake.RemoveSnake();
             PanelEnd.Visible = false;
-            _level = 0;
+            _score = 0;
 
             LblLevel.Text = string.Empty;
             TimerShiftFood.Stop();

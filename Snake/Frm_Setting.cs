@@ -12,9 +12,16 @@ namespace Snake
 {
     public partial class Frm_Setting : Form
     {
-        Frm_Main _frm;
+        //Object Form Main
+        Frm_Main _frm;    
+        
+        //List Part of snake Body 
         List<PictureBox> _body;
+        
+        //Location Snake Head 
         Point _head;
+
+        //Constructor
         public Frm_Setting(ref Frm_Main _frm)
         {
             InitializeComponent();
@@ -30,12 +37,14 @@ namespace Snake
             Speed.Enabled = true;
         }
 
+        //change Value ShiftFood
         private void TrBarShiftFood_ValueChanged(object sender, EventArgs e)
         {
             label2.Text = "Shift Food: " + TrBarShiftFood.Value.ToString();
             _frm._ShiftFood = TrBarShiftFood.Value;
         }
 
+        //change Value Speed Snake
         private void TrBarSpeed_ValueChanged(object sender, EventArgs e)
         {
             label1.Text = "Speed: " + TrBarSpeed.Value.ToString();
@@ -43,6 +52,7 @@ namespace Snake
             Speed.Interval = 200 - (TrBarSpeed.Value * 10);
         }
 
+        //Add Part to Body Snake
         public void Add()
         {
             _head.X += 10;
@@ -70,11 +80,13 @@ namespace Snake
             Controls.Add(_part);
         }
 
+        //Timer Move Snake
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Move();
         }
 
+        //Move Snake
         public void Move()
         {
             Add();
@@ -83,6 +95,7 @@ namespace Snake
             _body[_body.Count - 1].BackColor = Color.Red;
         }
 
+        //Click Start 
         private void BtnStart_Click(object sender, EventArgs e)
         {
             //No Cutting The Snake

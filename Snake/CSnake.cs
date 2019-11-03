@@ -11,11 +11,19 @@ namespace Snake
 
     class CSnake
     {
+        //Object Form Main 
         Frm_Main _frm;
+
+        //List for Snake Part 
         List<PictureBox> _body;
+
+        //Location Snake Head 
         Point _head;
+
+        //The direction of the snake's movement
         public char _direction { get; set; }
 
+        //Constructor
         public CSnake(ref Frm_Main _frm, char _direction)
         {
             this._frm = _frm;
@@ -28,6 +36,7 @@ namespace Snake
             _body[0].BackColor = Color.Red;
         }
 
+        //Move Snake
         public void _Move(int _law)
         {
             Add();
@@ -63,7 +72,7 @@ namespace Snake
                     _frm.TimerShiftFood.Enabled = false;
                     _frm.TimerSpeed.Enabled = false;
                     _frm.PanelEnd.Visible = true;
-                    _frm.Lbl_star.Text = _frm._level.ToString();
+                    _frm.Lbl_star.Text = _frm._score.ToString();
 
                 }
             }
@@ -99,6 +108,7 @@ namespace Snake
             }
         }
 
+        //Add Part to Snake
         public void Add()
         {
             switch (_direction)
@@ -126,7 +136,7 @@ namespace Snake
                     _frm.TimerSpeed.Enabled = false;
 
                     _frm.PanelEnd.Visible = true;
-                    _frm.Lbl_star.Text = _frm._level.ToString();
+                    _frm.Lbl_star.Text = _frm._score.ToString();
                     return;
                 }
             }
@@ -168,7 +178,8 @@ namespace Snake
             _frm.Controls.Add(_part);
 
         }
-
+        
+        //Remove All Part of Snake
         public void RemoveSnake()
         {
             while (0 < _body.Count)
@@ -178,6 +189,7 @@ namespace Snake
             }
         }
 
+        //Check Snake Eating
         public void eatfood(ref CFood _food)
         {
             int _x = _head.X;
@@ -202,6 +214,7 @@ namespace Snake
 
         }
 
+        //Snake Eating
         void eating(ref CFood _food)
         {
             Add();
@@ -210,8 +223,8 @@ namespace Snake
             _frm.TimerShiftFood.Start();
             _frm._fLx = _food._location.X;
             _frm._fLy = _food._location.Y;
-            _frm._level++;
-            _frm.LblLevel.Text = _frm._level.ToString();
+            _frm._score++;
+            _frm.LblLevel.Text = _frm._score.ToString();
         }
     }
 }

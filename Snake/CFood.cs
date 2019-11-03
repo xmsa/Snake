@@ -10,12 +10,17 @@ namespace Snake
 {
     class CFood
     {
-
+        //Object Food
         PictureBox _food;
+
+        //Location Food
         public Point _location { set; get; }
+
+        //Height and Width form
         int _height { set; get; }
         int _width { set; get; }
 
+        //Constructor
         public CFood(ref Frm_Main _frm)
         {
             _food = new PictureBox();
@@ -28,13 +33,15 @@ namespace Snake
             _location = _food.Location;
             _frm.Controls.Add(_food);
         }
-
+        //Return Location Randome
         private Point ranlocation()
         {
             Random rm = new Random();
             Point loc = new Point(rm.Next(20, _width - 20), rm.Next(20, _height - 20));
             return loc;
         }
+
+        //Shift Food
         public void shift()
         {
             _location = ranlocation();

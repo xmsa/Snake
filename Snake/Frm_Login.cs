@@ -12,9 +12,13 @@ namespace Snake
 {
     public partial class Frm_Login : Form
     {
+        //countter 
         int count = 0;
+
+        //Location Mouse
         private Point MouseDownLocation;
 
+        //Constructor
         public Frm_Login()
         {
             InitializeComponent();
@@ -22,6 +26,7 @@ namespace Snake
             btnLogin.Visible = false;
         }
 
+        //Move Tonug Snake
         private void PicSnake1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -39,6 +44,7 @@ namespace Snake
             }
         }
 
+        //Move Tonug Snake
         private void PicSnake1_MouseMove(object sender, MouseEventArgs e)
         {
             if (PicSnake1.Top > 145 && PicSnake1.Top < 296)
@@ -55,6 +61,7 @@ namespace Snake
             }
         }
 
+        //Click Tonug Snake
         private void PicSnake1_Click(object sender, EventArgs e)
         {
             count = 0;
@@ -64,6 +71,7 @@ namespace Snake
                 PicSnake1.Top = 146;
         }
 
+        //Timer Start Move Tonug Snake
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (count==2)
@@ -74,6 +82,7 @@ namespace Snake
             count++;
         }
 
+        //Timer Move Tonug Snake
         private void Timer2_Tick(object sender, EventArgs e)
         {
             if (PicSnake1.Top<296)
@@ -89,11 +98,13 @@ namespace Snake
             
         }
 
+        //Click Exit
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Click Login
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             this.Close();

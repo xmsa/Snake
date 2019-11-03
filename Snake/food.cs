@@ -52,6 +52,5 @@ namespace Snake
             Food.Location = Location;
 
         }
-
     }
 }

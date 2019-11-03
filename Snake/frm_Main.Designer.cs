@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PanelEnd = new System.Windows.Forms.Panel();
+            this.Lbl_star = new System.Windows.Forms.Label();
             this.PicPlayAgain = new System.Windows.Forms.PictureBox();
             this.TimerSpeed = new System.Windows.Forms.Timer(this.components);
             this.TimerShiftFood = new System.Windows.Forms.Timer(this.components);
             this.LblLevel = new System.Windows.Forms.Label();
-            this.Lbl_star = new System.Windows.Forms.Label();
             this.PanelEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPlayAgain)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +50,16 @@
             this.PanelEnd.Size = new System.Drawing.Size(704, 441);
             this.PanelEnd.TabIndex = 0;
             // 
+            // Lbl_star
+            // 
+            this.Lbl_star.AutoSize = true;
+            this.Lbl_star.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_star.Location = new System.Drawing.Point(323, 240);
+            this.Lbl_star.Name = "Lbl_star";
+            this.Lbl_star.Size = new System.Drawing.Size(63, 38);
+            this.Lbl_star.TabIndex = 1;
+            this.Lbl_star.Text = "label1";
+            // 
             // PicPlayAgain
             // 
             this.PicPlayAgain.BackColor = System.Drawing.Color.Transparent;
@@ -60,6 +70,7 @@
             this.PicPlayAgain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PicPlayAgain.TabIndex = 0;
             this.PicPlayAgain.TabStop = false;
+            this.PicPlayAgain.Click += new System.EventHandler(this.PicPlayAgain_Click);
             // 
             // TimerSpeed
             // 
@@ -81,16 +92,6 @@
             this.LblLevel.Size = new System.Drawing.Size(19, 26);
             this.LblLevel.TabIndex = 1;
             this.LblLevel.Text = "0";
-            // 
-            // Lbl_star
-            // 
-            this.Lbl_star.AutoSize = true;
-            this.Lbl_star.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_star.Location = new System.Drawing.Point(323, 240);
-            this.Lbl_star.Name = "Lbl_star";
-            this.Lbl_star.Size = new System.Drawing.Size(63, 38);
-            this.Lbl_star.TabIndex = 1;
-            this.Lbl_star.Text = "label1";
             // 
             // Frm_Main
             // 

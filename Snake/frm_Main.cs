@@ -120,6 +120,24 @@ namespace Snake
             _fLy = _food.Location.Y;
         }
 
-       
+        private void PicPlayAgain_Click(object sender, EventArgs e)
+        {
+            _snake.RemoveSnake();
+            PanelEnd.Visible = false;
+            level = 0;
+            LblLevel.Text = string.Empty;
+            TimerShiftFood.Stop();
+            TimerSpeed.Stop();
+            _snake = new snake(ref _Frm_Main, 'd');
+            _fLx = _food.Location.X;
+            _fLy = _food.Location.Y;
+            _Frm_Main.Visible = false;
+            new Frm_Setting(ref _Frm_Main).ShowDialog();
+            _Frm_Main.Visible = true;
+
+            TimerSpeed.Interval = 200 - (_Speed * 10);
+            TimerShiftFood.Interval = _ShiftFood * 500;
+
+        }
     }
 }

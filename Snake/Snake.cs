@@ -166,6 +166,16 @@ namespace Snake
             }
             _body.Add(part);
             frm.Controls.Add(part);
+
+        }
+        public void RemoveSnake()
+        {
+            while ( 0< _body.Count)
+            {
+                frm.Controls.Remove(_body[0]);
+                _body.Remove(_body[0]);
+            }
+                
         }
     }
 }

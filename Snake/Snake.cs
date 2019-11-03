@@ -28,10 +28,10 @@ namespace Snake
 
 
         }
-        public void move(int _law )
+        public void move(int _law)
         {
             add();
-            
+
             frm.Controls.Remove(_body[0]);
             _body.RemoveAt(0);
             _body[_body.Count - 1].BackColor = Color.Red;
@@ -52,10 +52,10 @@ namespace Snake
             int HeadX1 = Head.X + 20;
             int HeadY0 = Head.Y;
             int HeadY1 = Head.Y + 20;
-            for (int i = _body.Count -4; i >= 0 ; i--)
+            for (int i = _body.Count - 4; i >= 0; i--)
             {
                 PictureBox val = _body[i];
-            
+
                 if (HeadX0 <= val.Location.X && val.Location.X <= HeadX1 && HeadY0 <= val.Location.Y && val.Location.Y <= HeadY1)
                 {
                     for (int j = 0; j <= i; j++)
@@ -101,7 +101,7 @@ namespace Snake
 
         public void add()
         {
-            
+
             switch (Direction)
             {
                 case 'w':
@@ -119,7 +119,7 @@ namespace Snake
             }
             if (frm.Wall)
             {
-                if (0> Head.Y || Head.Y > frm.Height || 0> Head.X || Head.X > frm.Width)
+                if (0 > Head.Y || Head.Y > frm.Height || 0 > Head.X || Head.X > frm.Width)
                 {
                     frm.TimerShiftFood.Enabled = false;
                     frm.TimerSpeed.Enabled = false;
@@ -127,7 +127,7 @@ namespace Snake
                     frm.PanelEnd.Visible = true;
                     frm.Lbl_star.Text = frm.level.ToString();
                     return;
-                }  
+                }
             }
             else
             {
@@ -149,7 +149,7 @@ namespace Snake
                     Head.X = frm.Width - 60;
                 }
             }
-            
+
 
             PictureBox part = new PictureBox();
             part.Height = 10;
@@ -170,12 +170,47 @@ namespace Snake
         }
         public void RemoveSnake()
         {
-            while ( 0< _body.Count)
+            while (0 < _body.Count)
             {
                 frm.Controls.Remove(_body[0]);
                 _body.Remove(_body[0]);
             }
-                
+
+        }
+        public void eatfood(ref food _food)
+        {
+            int x = Head.X;
+            int y = Head.Y;
+
+            if ((frm._fLx <= x + 20 && x + 20 <= frm._fLx + 20) && (frm._fLy <= y + 20 && y + 20 <= frm._fLy + 20))
+            {
+                eating(ref _food);
+            }
+            else if ((frm._fLx <= x && x <= frm._fLx + 20) && (frm._fLy <= y + 20 && y + 20 <= frm._fLy + 20))
+            {
+                eating(ref _food);
+            }
+            else if ((frm._fLx <= x + 20 && x + 20 <= frm._fLx + 20) && (frm._fLy <= y && y <= frm._fLy + 20))
+            {
+                eating(ref _food);
+            }
+            else if ((frm._fLx <= x && x <= frm._fLx + 20) && (frm._fLy <= y && y <= frm._fLy + 20))
+            {
+                eating(ref _food);
+            }
+
+        }
+        void eating(ref food _food)
+        {
+            add();
+            _food.shift();
+            frm.TimerShiftFood.Stop();
+            frm.TimerShiftFood.Start();
+            frm._fLx = _food.Location.X;
+            frm._fLy = _food.Location.Y;
+            frm.level++;
+            frm.LblLevel.Text = frm.level.ToString();
+
         }
     }
 }

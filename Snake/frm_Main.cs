@@ -13,15 +13,16 @@ namespace Snake
     public partial class Frm_Main : Form
     {
         Frm_Main _Frm_Main;
-        public bool Wall { get; set; }
         food _food;
         snake _snake;
-        int _fLx;
-        int _fLy;
-        public int _Speed;
-        public int _ShiftFood;
-        public int level;
-        public int Law;
+        public int _fLx { get; set; }
+        public int _fLy { get; set; }
+        public bool Wall { get; set; }
+        public int _Speed { get; set; }
+        public int _ShiftFood { get; set; }
+        public int level { get; set; }
+        public int Law { get; set; }
+
         public Frm_Main()
         {
             new Frm_Login().ShowDialog();
@@ -73,43 +74,7 @@ namespace Snake
         private void Timer1_Tick(object sender, EventArgs e)
         {
             _snake.move(Law);
-            eatfoot();
-        }
-
-        void eatfoot()
-        {
-            int x=_snake.Head.X;
-            int y = _snake.Head.Y;
-
-            if ((_fLx <= x + 20 && x + 20 <= _fLx + 20) && (_fLy <= y + 20 && y + 20 <= _fLy + 20))
-            {
-                eating();
-            }
-            else if ((_fLx <= x && x <= _fLx + 20) && (_fLy <= y + 20 && y + 20 <= _fLy + 20))
-            {
-                eating();
-            }
-            else if ((_fLx <= x + 20 && x + 20 <= _fLx + 20) && (_fLy <= y && y <= _fLy + 20))
-            {
-                eating();
-            }
-            else if ((_fLx <= x && x <= _fLx + 20) && (_fLy <= y && y <= _fLy + 20))
-            {
-                eating();
-            }
-
-        }
-        void eating()
-        {
-            _snake.add();
-            _food.shift();
-            TimerShiftFood.Stop();
-            TimerShiftFood.Start();
-            _fLx = _food.Location.X;
-            _fLy = _food.Location.Y;
-            level++;
-            LblLevel.Text =  level.ToString();
-            
+            _snake.eatfood(ref _food);
         }
 
         private void Timer2_Tick(object sender, EventArgs e)

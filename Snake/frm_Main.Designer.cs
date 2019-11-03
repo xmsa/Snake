@@ -119,11 +119,11 @@
 
         #endregion
         private System.Windows.Forms.PictureBox PicPlayAgain;
-        private System.Windows.Forms.Label LblLevel;
         public System.Windows.Forms.Panel PanelEnd;
         public System.Windows.Forms.Timer TimerSpeed;
         public System.Windows.Forms.Timer TimerShiftFood;
         public System.Windows.Forms.Label Lbl_star;
+        public System.Windows.Forms.Label LblLevel;
     }
 }
 

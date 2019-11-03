@@ -12,71 +12,72 @@ namespace Snake
 {
     public partial class Frm_Setting : Form
     {
-        Frm_Main frm;
+        Frm_Main _frm;
         List<PictureBox> _body;
-        Point Head;
+        Point _head;
         public Frm_Setting(ref Frm_Main _frm)
         {
             InitializeComponent();
-            frm = _frm;
-            Head = new Point(15, 230);
+            this._frm = _frm;
+            _head = new Point(15, 230);
             _body = new List<PictureBox>();
-            add();
+            Add();
             _body[0].BackColor = Color.Red;
-            add();
-            add();
-            frm._ShiftFood = TrBarShiftFood.Value;
-            frm._Speed = TrBarSpeed.Value;
+            Add();
+            Add();
+            _frm._ShiftFood = TrBarShiftFood.Value;
+            _frm._Speed = TrBarSpeed.Value;
             Speed.Enabled = true;
-
-
         }
 
         private void TrBarShiftFood_ValueChanged(object sender, EventArgs e)
         {
             label2.Text = "Shift Food: " + TrBarShiftFood.Value.ToString();
-            frm._ShiftFood = TrBarShiftFood.Value;
+            _frm._ShiftFood = TrBarShiftFood.Value;
         }
 
         private void TrBarSpeed_ValueChanged(object sender, EventArgs e)
         {
             label1.Text = "Speed: " + TrBarSpeed.Value.ToString();
-            frm._Speed = TrBarSpeed.Value;
+            _frm._Speed = TrBarSpeed.Value;
             Speed.Interval = 200 - (TrBarSpeed.Value * 10);
-
-
         }
 
-        public void add()
+        public void Add()
         {
-            Head.X += 10;
+            _head.X += 10;
 
-            if (Head.X > 320)
+            if (_head.X > 320)
             {
-                Head.X = 0;
+                _head.X = 0;
             }
-            PictureBox part = new PictureBox();
-            part.Size = new System.Drawing.Size(10, 10);
-            part.BackColor = System.Drawing.Color.Red;
-            part.Location = new System.Drawing.Point(Head.X, Head.Y);
+
+            PictureBox _part = new PictureBox();
+            _part.Size = new System.Drawing.Size(10, 10);
+            _part.BackColor = System.Drawing.Color.Red;
+            _part.Location = new System.Drawing.Point(_head.X, _head.Y);
+
             try
             {
                 _body[_body.Count - 1].BackColor = System.Drawing.Color.Black;
             }
             catch (Exception)
             {
+
             }
-            _body.Add(part);
-            Controls.Add(part);
+
+            _body.Add(_part);
+            Controls.Add(_part);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            move();
+            Move();
         }
-        public void move()
+
+        public void Move()
         {
-            add();
+            Add();
             Controls.Remove(_body[0]);
             _body.RemoveAt(0);
             _body[_body.Count - 1].BackColor = Color.Red;
@@ -87,24 +88,23 @@ namespace Snake
             //No Cutting The Snake
             if (rbNCTS.Checked)
             {
-                frm.Law = 1;
+                _frm._law = 1;
             }
+
             //Cutting The Snake
             else if (rbCTS.Checked)
             {
-                frm.Law = 2;
+                _frm._law = 2;
             }
+
+            //No Law
             else if (rbNoLaw.Checked)
             {
-                frm.Law = 0;
+                _frm._law = 0;
             }
 
-            frm.Wall = chWall.Checked;
-
+            _frm._wall = chWall.Checked;
             this.Close();
-
         }
-
-
     }
 }

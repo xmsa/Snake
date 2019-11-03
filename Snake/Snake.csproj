@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="food.cs" />
+    <Compile Include="CFood.cs" />
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +67,7 @@
     <Compile Include="Frm_Setting.Designer.cs">
       <DependentUpon>Frm_Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Snake.cs" />
+    <Compile Include="CSnake.cs" />
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>

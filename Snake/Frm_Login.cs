@@ -12,15 +12,15 @@ namespace Snake
 {
     public partial class Frm_Login : Form
     {
+        int count = 0;
+        private Point MouseDownLocation;
+
         public Frm_Login()
         {
             InitializeComponent();
             btnExit.Visible = false;
-            BtnLogin.Visible = false;
-
+            btnLogin.Visible = false;
         }
-
-        private Point MouseDownLocation;
 
         private void PicSnake1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -35,7 +35,6 @@ namespace Snake
                 else
                 {
                     MouseDownLocation = e.Location;
-
                 }
             }
         }
@@ -51,11 +50,9 @@ namespace Snake
             }
             else if (PicSnake1.Top > 295)
             {
-
                 btnExit.Visible = true;
-                BtnLogin.Visible = true;
+                btnLogin.Visible = true;
             }
-
         }
 
         private void PicSnake1_Click(object sender, EventArgs e)
@@ -65,10 +62,7 @@ namespace Snake
             timer2.Enabled = false;
             if (PicSnake1.Top < 296)
                 PicSnake1.Top = 146;
-            
         }
-
-        int count=0;
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -76,10 +70,8 @@ namespace Snake
             {
                 timer2.Enabled = true;
                 timer1.Enabled = false;
-
             }
             count++;
-
         }
 
         private void Timer2_Tick(object sender, EventArgs e)
@@ -92,7 +84,7 @@ namespace Snake
             {
                 timer2.Enabled = false;
                 btnExit.Visible = true;
-                BtnLogin.Visible = true;
+                btnLogin.Visible = true;
             }
             
         }

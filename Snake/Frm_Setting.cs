@@ -64,12 +64,19 @@ namespace Snake
 
             PictureBox _part = new PictureBox();
             _part.Size = new System.Drawing.Size(10, 10);
-            _part.BackColor = System.Drawing.Color.Red;
+            //_part.BackColor = System.Drawing.Color.Red;
             _part.Location = new System.Drawing.Point(_head.X, _head.Y);
+            _part.BackColor = System.Drawing.Color.Transparent;
+            _part.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            _part.Image = Snake.Properties.Resources.HeadD;
+
 
             try
             {
                 _body[_body.Count - 1].BackColor = System.Drawing.Color.Black;
+
+                _body[_body.Count - 1].Image = null;
+
             }
             catch (Exception)
             {
@@ -92,7 +99,7 @@ namespace Snake
             Add();
             Controls.Remove(_body[0]);
             _body.RemoveAt(0);
-            _body[_body.Count - 1].BackColor = Color.Red;
+            //_body[_body.Count - 1].BackColor = Color.Red;
         }
 
         //Click Start 

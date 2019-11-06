@@ -185,6 +185,7 @@ namespace Snake
             try
             {
                 _body[_body.Count - 1].BackColor = System.Drawing.Color.Black;
+
                 _body[_body.Count - 1].Image = null;
             }
             catch (Exception)

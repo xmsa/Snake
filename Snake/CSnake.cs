@@ -21,16 +21,16 @@ namespace Snake
         Point _head;
 
         //The direction of the snake's movement
-        public char _direction { get; set; }
+        public Keys _keys { get; internal set; }
 
         //The direction of the snake Head
         Bitmap _imagehead ;
 
         //Constructor
-        public CSnake(ref Frm_Main _frm, char _direction)
+        public CSnake(ref Frm_Main _frm, Keys _keys)
         {
             this._frm = _frm;
-            this._direction = _direction;
+            this._keys = _keys;
             Bitmap _imagehead = Snake.Properties.Resources.HeadD;
             _head = new Point(10, 10);
             _body = new List<PictureBox>();
@@ -114,23 +114,23 @@ namespace Snake
         //Add Part to Snake
         public void Add()
         {
-            switch (_direction)
+            switch (_keys)
             {
-                case 'w':
+                case Keys.W:
                     _head.Y -= 20;
                     _imagehead = Snake.Properties.Resources.HeadW;
                     break;
-                case 's':
+                case Keys.S:
                     _head.Y += 20;
                     _imagehead = Snake.Properties.Resources.HeadS;
                     
                     break;
-                case 'a':
+                case Keys.A:
                     _head.X -= 20;
                     _imagehead = Snake.Properties.Resources.HeadA;
 
                     break;
-                case 'd':
+                case Keys.D:
                     _head.X += 20;
                     _imagehead = Snake.Properties.Resources.HeadD;
                     break;

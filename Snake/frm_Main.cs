@@ -52,7 +52,7 @@ namespace Snake
             PanelEnd.Visible = false;
             _food = new CFood(ref _Frm_Main);
             _score = 0;
-             _snake=new CSnake (ref _Frm_Main,'d');
+             _snake=new CSnake (ref _Frm_Main,Keys.D);
             _fLx=_food._location.X;
             _fLy = _food._location.Y;
             new Frm_Setting(ref _Frm_Main ).ShowDialog();
@@ -63,30 +63,38 @@ namespace Snake
         //Directional Key Detection
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
         {
-            char key='d';
-            try
-            {
-                key = Convert.ToChar(e.KeyData);
-            }
-            catch (Exception)
-            {
-                return;
-            }
             TimerSpeed.Enabled = true;
             TimerShiftFood.Enabled = true;
-            switch (key)
+            var _keys = e.KeyCode;
+            switch (_keys)
             {
-                case 'A':
-                    _snake._direction = (_snake._direction != 'd') ? 'a' : 'd';
+                case Keys.Left:
+                    _keys = Keys.A;
                     break;
-                case 'S':
-                    _snake._direction = (_snake._direction != 'w') ? 's' : 'w';
+                case Keys.Down:
+                    _keys = Keys.S;
                     break;
-                case 'D':
-                    _snake._direction = (_snake._direction != 'a') ? 'd' : 'a';
+                case Keys.Right:
+                    _keys = Keys.D; 
                     break;
-                case 'W':
-                    _snake._direction = (_snake._direction != 's') ? 'w' : 's';
+                case Keys.Up:
+                    _keys = Keys.W;
+                    break;
+            }
+
+            switch (_keys)
+            {
+                case Keys.A:
+                    _snake._keys = (_snake._keys != Keys.D) ? Keys.A : Keys.D;
+                    break;
+                case Keys.S:
+                    _snake._keys = (_snake._keys != Keys.W) ? Keys.S : Keys.W;
+                    break;
+                case Keys.D:
+                    _snake._keys = (_snake._keys != Keys.A) ? Keys.D : Keys.A;
+                    break;
+                case Keys.W:
+                    _snake._keys = (_snake._keys != Keys.S) ? Keys.W : Keys.S;
                     break;
             }
         }
@@ -118,7 +126,7 @@ namespace Snake
             TimerShiftFood.Stop();
             TimerSpeed.Stop();
 
-            _snake = new CSnake(ref _Frm_Main, 'd');
+            _snake = new CSnake(ref _Frm_Main, Keys.D);
             _fLx = _food._location.X;
             _fLy = _food._location.Y;
             _Frm_Main.Visible = false;

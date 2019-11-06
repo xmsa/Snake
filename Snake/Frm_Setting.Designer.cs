@@ -48,7 +48,7 @@
             // TrBarSpeed
             // 
             this.TrBarSpeed.Location = new System.Drawing.Point(12, 12);
-            this.TrBarSpeed.Maximum = 19;
+            this.TrBarSpeed.Maximum = 21;
             this.TrBarSpeed.Minimum = 1;
             this.TrBarSpeed.Name = "TrBarSpeed";
             this.TrBarSpeed.Size = new System.Drawing.Size(324, 45);
@@ -59,8 +59,7 @@
             // TrBarShiftFood
             // 
             this.TrBarShiftFood.Location = new System.Drawing.Point(12, 116);
-            this.TrBarShiftFood.Maximum = 19;
-            this.TrBarShiftFood.Minimum = 1;
+            this.TrBarShiftFood.Maximum = 21;
             this.TrBarShiftFood.Name = "TrBarShiftFood";
             this.TrBarShiftFood.Size = new System.Drawing.Size(324, 45);
             this.TrBarShiftFood.TabIndex = 0;
@@ -120,7 +119,7 @@
             // 
             this.chWall.AutoSize = true;
             this.chWall.Location = new System.Drawing.Point(4, 124);
-            this.chWall.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.chWall.Margin = new System.Windows.Forms.Padding(1);
             this.chWall.Name = "chWall";
             this.chWall.Size = new System.Drawing.Size(80, 46);
             this.chWall.TabIndex = 1;
@@ -174,6 +173,7 @@
             this.Name = "Frm_Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setting";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Setting_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.TrBarSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrBarShiftFood)).EndInit();
             this.groupBox1.ResumeLayout(false);

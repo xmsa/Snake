@@ -48,7 +48,6 @@ namespace Snake
         private Bitmap RanPicFood()
         {
             Random rn = new Random();
-            MessageBox.Show(rn.Next(1, 8).ToString());
             switch (rn.Next(1, 8))
             {
                 case 1:

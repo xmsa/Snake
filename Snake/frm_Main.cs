@@ -41,7 +41,8 @@ namespace Snake
 
         //Speed Move Snake
         public int _law { get; set; }
-
+        //Enable Shift Food
+        public bool _flag { get; set; }
         //Constructor
         public Frm_Main()
         {
@@ -56,15 +57,23 @@ namespace Snake
             _fLx=_food._location.X;
             _fLy = _food._location.Y;
             new Frm_Setting(ref _Frm_Main ).ShowDialog();
-            TimerSpeed.Interval = 200 - ( _Speed * 10);
-            TimerShiftFood.Interval = _ShiftFood * 500;
+            TimerSpeed.Interval = 1010 - ((_Speed - 1) * 50);
+            if (_ShiftFood != 0)
+            {
+                TimerShiftFood.Interval = 10000 - ((_ShiftFood - 1) * 450);
+                _flag = true;
+            }
+            else
+            {
+                _flag=false;
+            }
         }
 
         //Directional Key Detection
         private void Frm_Main_KeyDown(object sender, KeyEventArgs e)
         {
             TimerSpeed.Enabled = true;
-            TimerShiftFood.Enabled = true;
+            TimerShiftFood.Enabled = _flag;
             var _keys = e.KeyCode;
             switch (_keys)
             {
@@ -123,8 +132,11 @@ namespace Snake
             _score = 0;
 
             Lblscore.Text = string.Empty;
-            TimerShiftFood.Stop();
-            TimerSpeed.Stop();
+            if (_flag)
+            {
+                TimerShiftFood.Stop();
+                TimerSpeed.Stop();
+            }
 
             _snake = new CSnake(ref _Frm_Main, Keys.D);
             _fLx = _food._location.X;
@@ -135,8 +147,18 @@ namespace Snake
 
             _Frm_Main.Visible = true;
 
-            TimerSpeed.Interval = 200 - (_Speed * 10);
-            TimerShiftFood.Interval = _ShiftFood * 500;
+            TimerSpeed.Interval = 1010 - ((_Speed - 1) * 50);
+            if (_ShiftFood != 0)
+            {
+                TimerShiftFood.Interval = 10000 - ((_ShiftFood - 1) * 400);
+                _flag = true;
+
+            }
+            else
+            {
+                _flag = false;
+
+            }
         }
     }
 }

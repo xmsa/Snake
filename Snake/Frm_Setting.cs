@@ -49,7 +49,7 @@ namespace Snake
         {
             label1.Text = "Speed: " + TrBarSpeed.Value.ToString();
             _frm._Speed = TrBarSpeed.Value;
-            Speed.Interval = 200 - (TrBarSpeed.Value * 10);
+            Speed.Interval = 1010 - ((_frm._Speed - 1) * 50);
         }
 
         //Add Part to Body Snake
@@ -125,6 +125,11 @@ namespace Snake
 
             _frm._wall = chWall.Checked;
             this.Close();
+        }
+
+        private void Frm_Setting_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Speed.Enabled = false;
         }
     }
 }

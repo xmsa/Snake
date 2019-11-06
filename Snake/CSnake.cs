@@ -236,8 +236,11 @@ namespace Snake
         {
             Add();
             _food.shift();
-            _frm.TimerShiftFood.Stop();
-            _frm.TimerShiftFood.Start();
+            if (_frm._flag)
+            {
+                _frm.TimerShiftFood.Stop();
+                _frm.TimerShiftFood.Start();
+            }
             _frm._fLx = _food._location.X;
             _frm._fLy = _food._location.Y;
             _frm._score++;

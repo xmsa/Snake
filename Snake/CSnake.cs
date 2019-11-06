@@ -23,17 +23,20 @@ namespace Snake
         //The direction of the snake's movement
         public char _direction { get; set; }
 
+        //The direction of the snake Head
+        Bitmap _imagehead ;
+
         //Constructor
         public CSnake(ref Frm_Main _frm, char _direction)
         {
             this._frm = _frm;
             this._direction = _direction;
+            Bitmap _imagehead = Snake.Properties.Resources.HeadD;
             _head = new Point(10, 10);
             _body = new List<PictureBox>();
             Add();
             Add();
             Add();
-            _body[0].BackColor = Color.Red;
         }
 
         //Move Snake
@@ -43,7 +46,7 @@ namespace Snake
 
             _frm.Controls.Remove(_body[0]);
             _body.RemoveAt(0);
-            _body[_body.Count - 1].BackColor = Color.Red;
+            //_body[_body.Count - 1].BackColor = Color.Red;
 
             if (_law == 1)
             {
@@ -115,15 +118,21 @@ namespace Snake
             {
                 case 'w':
                     _head.Y -= 20;
+                    _imagehead = Snake.Properties.Resources.HeadW;
                     break;
                 case 's':
                     _head.Y += 20;
+                    _imagehead = Snake.Properties.Resources.HeadS;
+                    
                     break;
                 case 'a':
                     _head.X -= 20;
+                    _imagehead = Snake.Properties.Resources.HeadA;
+
                     break;
                 case 'd':
                     _head.X += 20;
+                    _imagehead = Snake.Properties.Resources.HeadD;
                     break;
             }
 
@@ -165,11 +174,18 @@ namespace Snake
             _part.Height = 10;
             _part.Width = 10;
             _part.Size = new System.Drawing.Size(20, 20);
-            _part.BackColor = System.Drawing.Color.Red;
+            //_part.BackColor = System.Drawing.Color.Red;
+            _part.BackColor = System.Drawing.Color.Transparent;
+
+            _part.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            _part.Image = _imagehead;
+            
+
             _part.Location = new System.Drawing.Point(_head.X, _head.Y);
             try
             {
                 _body[_body.Count - 1].BackColor = System.Drawing.Color.Black;
+                _body[_body.Count - 1].Image = null;
             }
             catch (Exception)
             {

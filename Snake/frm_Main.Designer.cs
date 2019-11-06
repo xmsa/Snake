@@ -81,14 +81,14 @@
             this.TimerShiftFood.Interval = 2000;
             this.TimerShiftFood.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
-            // LblLevel
+            // Lblscore
             // 
             this.Lblscore.AutoSize = true;
             this.Lblscore.BackColor = System.Drawing.Color.Transparent;
             this.Lblscore.Font = new System.Drawing.Font("Microsoft Uighur", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lblscore.ForeColor = System.Drawing.Color.Black;
             this.Lblscore.Location = new System.Drawing.Point(663, 417);
-            this.Lblscore.Name = "LblLevel";
+            this.Lblscore.Name = "Lblscore";
             this.Lblscore.Size = new System.Drawing.Size(19, 26);
             this.Lblscore.TabIndex = 1;
             this.Lblscore.Text = "0";
